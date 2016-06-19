@@ -1,0 +1,646 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,900,100);
+@import url(https://file.myfontastic.com/kqRU2TJ2uKuWPWa6yupgDG/icons.css);
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+}
+
+* {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -khtml-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -khtml-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+  -ms-tap-highlight-color: transparent;
+  -o-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
+.calendar {
+  width: 320px;
+  margin: 100px auto auto;
+  -webkit-box-shadow: 0 19px 38px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22);
+  -khtml-box-shadow: 0 19px 38px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22);
+  -moz-box-shadow: 0 19px 38px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22);
+  -ms-box-shadow: 0 19px 38px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22);
+  -o-box-shadow: 0 19px 38px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22);
+  box-shadow: 0 19px 38px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22);
+  overflow: hidden;
+}
+
+.calendar .calendar-inner .calendar-header {
+  background: #D57979;
+  color: white;
+  line-height: 48px;
+  padding: 0 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.calendar .calendar-inner .calendar-header .calendar-header-inner {
+  height: 48px;
+  display: -webkit-flex;
+  display: -khtml-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+
+.calendar .calendar-inner .calendar-header .calendar-header-inner > * {
+  text-align: center;
+  -webkit-align-itpxs: center;
+  -khtml-align-itpxs: center;
+  -moz-align-itpxs: center;
+  -ms-align-itpxs: center;
+  -o-align-itpxs: center;
+  align-itpxs: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  display: -webkit-flex;
+  display: -khtml-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -khtml-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  -o-box-align: center;
+  box-align: center;
+}
+
+.calendar .calendar-inner .calendar-header .calendar-header-inner i {
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+.calendar .calendar-inner .calendar-header .calendar-header-inner i:before {
+  line-height: 48px;
+}
+
+.calendar .calendar-inner .calendar-header .calendar-header-inner .left,
+.calendar .calendar-inner .calendar-header .calendar-header-inner .right {
+  position: relative;
+  width: 15%;
+}
+
+.calendar .calendar-inner .calendar-header .calendar-header-inner .center {
+  width: 70%;
+  font-size: 14px;
+}
+
+.calendar .calendar-inner .calendar-content {
+  font-size: 12px;
+  color: #585656;
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar .calendar-inner .calendar-content .calendar-months .calendar-week-days {
+  color: gray;
+  display: -webkit-flex;
+  display: -khtml-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+
+.calendar .calendar-inner .calendar-content .calendar-months .calendar-week-days .calendar-week-day {
+  text-align: center;
+  margin: auto;
+  -webkit-align-itpxs: center;
+  -khtml-align-itpxs: center;
+  -moz-align-itpxs: center;
+  -ms-align-itpxs: center;
+  -o-align-itpxs: center;
+  align-itpxs: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  display: -webkit-flex;
+  display: -khtml-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -khtml-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  -o-box-align: center;
+  box-align: center;
+  height: calc( 48px - 10px);
+  line-height: calc( 48px - 10px);
+}
+
+.calendar .calendar-inner .calendar-content .calendar-months .calendar-months-inner {
+  -webkit-perspective: 1200px;
+  -khtml-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -ms-perspective: 1200px;
+  -o-perspective: 1200px;
+  perspective: 1200px;
+  -webkit-transform-style: preserve-3d;
+  -khtml-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.calendar .calendar-inner .calendar-content .calendar-months .calendar-months-inner .calendar-month {
+  -webkit-backface-visibility: hidden;
+  -khtml-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -khtml-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  background: white;
+  width: 100%;
+}
+
+.calendar .calendar-inner .calendar-content .calendar-months .calendar-months-inner .calendar-month.calendar-month-off {
+  position: absolute;
+}
+
+.calendar .calendar-inner .calendar-content .calendar-months .calendar-months-inner .calendar-month .calendar-row {
+  display: -webkit-flex;
+  display: -khtml-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  height: 48px;
+  line-height: 48px;
+  font-weight: 500;
+}
+
+.calendar .calendar-inner .calendar-content .calendar-months .calendar-months-inner .calendar-month .calendar-row .calendar-day {
+  text-align: center;
+  margin: auto;
+  -webkit-align-itpxs: center;
+  -khtml-align-itpxs: center;
+  -moz-align-itpxs: center;
+  -ms-align-itpxs: center;
+  -o-align-itpxs: center;
+  align-itpxs: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  display: -webkit-flex;
+  display: -khtml-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -khtml-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  -o-box-align: center;
+  box-align: center;
+  width: calc( 100% / 7);
+}
+
+.calendar .calendar-inner .calendar-content .calendar-months .calendar-months-inner .calendar-month .calendar-row .calendar-day span {
+  margin-left: 5px;
+  margin-right: 5px;
+  line-height: calc( 48px - 12px);
+}
+
+.calendar .calendar-inner .calendar-content .calendar-months .calendar-months-inner .calendar-month .calendar-row .calendar-day.calendar-day-other {
+  color: lightgray;
+}
+
+.calendar .calendar-inner .calendar-content .calendar-months .calendar-months-inner .calendar-month .calendar-row .calendar-day.calendar-day-today span {
+  width: 100%;
+  background: #D57979;
+  color: white;
+  -webkit-border-radius: 100%;
+  -khtml-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.link {
+  -webkit-transition-duration: 100ms;
+  -khtml-transition-duration: 100ms;
+  -moz-transition-duration: 100ms;
+  -ms-transition-duration: 100ms;
+  -o-transition-duration: 100ms;
+  transition-duration: 100ms;
+}
+
+.link:before {
+  content: "";
+  height: 150%;
+  width: 150%;
+  top: -25%;
+  left: -25%;
+  position: absolute;
+  background-image: -webkit-radial-gradient(center,circle cover,rgba(255,255,255,.30) 66%,rgba(255,255,255,0) 66%);
+  background-image: -khtml-radial-gradient(center,circle cover,rgba(255,255,255,.30) 66%,rgba(255,255,255,0) 66%);
+  background-image: -moz-radial-gradient(center,circle cover,rgba(255,255,255,.30) 66%,rgba(255,255,255,0) 66%);
+  background-image: -ms-radial-gradient(center,circle cover,rgba(255,255,255,.30) 66%,rgba(255,255,255,0) 66%);
+  background-image: -o-radial-gradient(center,circle cover,rgba(255,255,255,.30) 66%,rgba(255,255,255,0) 66%);
+  background-image: radial-gradient(center,circle cover,rgba(255,255,255,.30) 66%,rgba(255,255,255,0) 66%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  pointer-events: none;
+  -webkit-transition-duration: 0.6s;
+  -khtml-transition-duration: 0.6s;
+  -moz-transition-duration: 0.6s;
+  -ms-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+  transition-duration: 0.6s;
+  opacity: 0;
+}
+
+.link.active-state:before {
+  opacity: 1;
+}
+
+.animate-move-in-next {
+  -webkit-animation: move-in-next 300ms ease both;
+  -moz-animation: move-in-next 300ms ease both;
+  -o-animation: move-in-next 300ms ease both;
+  animation: move-in-next 300ms ease both;
+}
+
+@-webkit-keyframes move-in-next {
+  from {
+    -webkit-transform: translateX(100%);
+    -khtml-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+
+  to {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@-moz-keyframes move-in-next {
+  from {
+    -webkit-transform: translateX(100%);
+    -khtml-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+
+  to {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@-o-keyframes move-in-next {
+  from {
+    -webkit-transform: translateX(100%);
+    -khtml-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+
+  to {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes move-in-next {
+  from {
+    -webkit-transform: translateX(100%);
+    -khtml-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+
+  to {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+.animate-move-in-prev {
+  -webkit-animation: move-in-prev 300ms ease both;
+  -moz-animation: move-in-prev 300ms ease both;
+  -o-animation: move-in-prev 300ms ease both;
+  animation: move-in-prev 300ms ease both;
+}
+
+@-webkit-keyframes move-in-prev {
+  from {
+    -webkit-transform: translateX(-100%);
+    -khtml-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  to {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@-moz-keyframes move-in-prev {
+  from {
+    -webkit-transform: translateX(-100%);
+    -khtml-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  to {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@-o-keyframes move-in-prev {
+  from {
+    -webkit-transform: translateX(-100%);
+    -khtml-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  to {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes move-in-prev {
+  from {
+    -webkit-transform: translateX(-100%);
+    -khtml-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  to {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+.animate-move-out-next {
+  -webkit-animation: move-out-next 300ms ease both;
+  -moz-animation: move-out-next 300ms ease both;
+  -o-animation: move-out-next 300ms ease both;
+  animation: move-out-next 300ms ease both;
+}
+
+@-webkit-keyframes move-out-next {
+  from {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  to {
+    -webkit-transform: translateX(-100%);
+    -khtml-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+@-moz-keyframes move-out-next {
+  from {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  to {
+    -webkit-transform: translateX(-100%);
+    -khtml-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+@-o-keyframes move-out-next {
+  from {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  to {
+    -webkit-transform: translateX(-100%);
+    -khtml-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes move-out-next {
+  from {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  to {
+    -webkit-transform: translateX(-100%);
+    -khtml-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+.animate-move-out-prev {
+  -webkit-animation: move-out-prev 300ms ease both;
+  -moz-animation: move-out-prev 300ms ease both;
+  -o-animation: move-out-prev 300ms ease both;
+  animation: move-out-prev 300ms ease both;
+}
+
+@-webkit-keyframes move-out-prev {
+  from {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  to {
+    -webkit-transform: translateX(100%);
+    -khtml-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@-moz-keyframes move-out-prev {
+  from {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  to {
+    -webkit-transform: translateX(100%);
+    -khtml-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@-o-keyframes move-out-prev {
+  from {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  to {
+    -webkit-transform: translateX(100%);
+    -khtml-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes move-out-prev {
+  from {
+    -webkit-transform: translateX(0%);
+    -khtml-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  to {
+    -webkit-transform: translateX(100%);
+    -khtml-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}

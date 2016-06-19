@@ -1,0 +1,245 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,900,100);
+@import url(https://file.myfontastic.com/kqRU2TJ2uKuWPWa6yupgDG/icons.css);
+$ColorA: #D57979;
+$HeightStandardA: 56px;
+$HeightStandardB: 48px;
+$FontDefault: 'Roboto', sans-serif;
+@mixin text-overflow-ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin css3($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+@mixin css3Property($property, $value) {
+  #{$property}: -webkit-#{$value};
+  #{$property}: -khtml-#{$value};
+  #{$property}: -moz-#{$value};
+  #{$property}: -ms-#{$value};
+  #{$property}: -o-#{$value};
+  #{$property}: #{$value};
+}
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+  -webkit-animation: $animations;
+  -moz-animation: $animations;
+  -o-animation: $animations;
+  animation: $animations;
+}
+@mixin keyframes($animationName) {
+   @-webkit-keyframes #{$animationName}{
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+     @content;
+  }
+  @-o-keyframes #{$animationName} {
+     @content;
+  }
+  @keyframes #{$animationName} {
+     @content;
+  }
+}
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: $FontDefault;
+  position: relative;
+  // overflow: hidden;
+}
+* {
+  @include css3(user-select, none);
+  @include css3(box-sizing, border-box);
+  @include css3(tap-highlight-color,transparent);
+}
+.calendar {
+  width: 320px;
+  margin: 100px auto auto;
+  @include css3(box-shadow, "0 19px 38px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22)");
+  overflow: hidden;
+  .calendar-inner {
+    .calendar-header {
+      background: $ColorA;
+      color: white;
+      line-height: $HeightStandardB;
+      padding: 0 10px;
+      font-size: 20px;
+      text-align: center;    
+      .calendar-header-inner {
+        height: $HeightStandardB;
+        @include css3Property(display, flex);
+        > * {
+          text-align: center;
+          @include css3(align-itpxs, center);
+          @include css3(justify-content, center);
+          @include css3Property(display, flex);
+          @include css3(box-align, center);
+        }
+        i {
+          font-size: 24px;
+          vertical-align: middle;
+          &:before {
+            line-height: $HeightStandardB;
+          }
+        }
+        .left,
+        .right {
+          position: relative;
+          width: 15%;
+        }
+        .center {
+          width: 70%;
+          font-size: 14px;
+        }
+      }
+    }
+    .calendar-content {
+      font-size: 12px;
+      color: #585656;
+      position: relative;
+      overflow: hidden;
+      .calendar-months {
+        .calendar-week-days {
+          color: gray;
+          @include css3Property(display, flex);
+          .calendar-week-day {
+            text-align: center;
+            margin: auto;
+            @include css3(align-itpxs, center);
+            @include css3(justify-content, center);
+            @include css3Property(display, flex);
+            @include css3(box-align, center);
+            height: calc( #{$HeightStandardB} - 10px );
+            line-height: calc( #{$HeightStandardB} - 10px );
+          }
+        }
+        .calendar-months-inner {
+          @include css3(perspective, 1200px);
+          @include css3(transform-style, preserve-3d);
+          .calendar-month {
+            @include css3(backface-visibility, hidden);
+            @include css3(transform, translate3d(0, 0, 0));
+            // @include css3(box-shadow, 0 8px 23px -10px black);
+            background: white;
+            width: 100%;
+            &.calendar-month-off {
+              position: absolute;
+            }
+            .calendar-row {
+              @include css3Property(display, flex);
+              height: $HeightStandardB;
+              line-height: $HeightStandardB;
+              font-weight: 500;
+              .calendar-day {
+                text-align: center;
+                margin: auto;
+                @include css3(align-itpxs, center);
+                @include css3(justify-content, center);
+                @include css3Property(display, flex);
+                @include css3(box-align, center);
+                width: calc( 100% / 7 );
+                span {
+                  margin-left: 5px;
+                  margin-right: 5px;
+                  line-height: calc( #{$HeightStandardB} - 12px );
+                }
+                &.calendar-day-other {
+                  color: lightgray;
+                }
+                &.calendar-day-today {
+                  span {
+                    width: 100%;
+                    background: $ColorA;
+                    color: white;
+                    @include css3(border-radius, 100%);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.link {
+  @include css3(transition-duration, 100ms);
+  &:before {
+    content: "";
+    height: 150%;
+    width: 150%;
+    top: -25%;
+    left: -25%;
+    position: absolute;
+    @include css3Property(background-image, 'radial-gradient(center,circle cover,rgba(255,255,255,.30) 66%,rgba(255,255,255,0) 66%)');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    pointer-events: none;
+    @include css3(transition-duration, 0.6s);
+    opacity: 0;
+  }
+  &.active-state:before {
+    opacity: 1;
+  }
+}
+.animate-move-in-next {
+  @include animation(move-in-next 300ms ease both);
+}
+@include keyframes(move-in-next) {
+  from {
+    @include css3(transform, translateX(100%));
+  }
+  to {
+    @include css3(transform, translateX(0%));
+  }
+}
+.animate-move-in-prev {
+  @include animation(move-in-prev 300ms ease both);
+}
+@include keyframes(move-in-prev) {
+  from {
+    @include css3(transform, translateX(-100%));
+  }
+  to {
+    @include css3(transform, translateX(0%));
+  }
+}
+.animate-move-out-next {
+  @include animation(move-out-next 300ms ease both);
+}
+@include keyframes(move-out-next) {
+  from {
+    @include css3(transform, translateX(0%));
+  }
+  to {
+    @include css3(transform, translateX(-100%));
+  }
+}
+.animate-move-out-prev {
+  @include animation(move-out-prev 300ms ease both);
+}
+@include keyframes(move-out-prev) {
+  from {
+    @include css3(transform, translateX(0%));
+  }
+  to {
+    @include css3(transform, translateX(100%));
+  }
+}
