@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,900,100);
 @import url(https://file.myfontastic.com/kqRU2TJ2uKuWPWa6yupgDG/icons.css);
+@import url(animate.css);
 $ColorA: #D57979;
 $HeightStandardA: 56px;
 $HeightStandardB: 48px;
@@ -61,26 +62,58 @@ html {
   padding: 0;
   font-family: $FontDefault;
   position: relative;
-  // overflow: hidden;
+  overflow: hidden;
 }
 * {
   @include css3(user-select, none);
   @include css3(box-sizing, border-box);
   @include css3(tap-highlight-color,transparent);
 }
+.link {
+  @include css3(transition-duration, 100ms);
+  &:before {
+    content: "";
+    height: 150%;
+    width: 150%;
+    top: -25%;
+    left: -25%;
+    position: absolute;
+    @include css3Property(background-image, 'radial-gradient(center,circle cover,rgba(255,255,255,.30) 66%,rgba(255,255,255,0) 66%)');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    pointer-events: none;
+    @include css3(transition-duration, 0.6s);
+    opacity: 0;
+  }
+  &.active-state:before {
+    opacity: 1;
+  }
+}
 .calendar {
-  width: 320px;
-  margin: 100px auto auto;
-  @include css3(box-shadow, "0 19px 38px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22)");
-  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 2000;
+  &.animated {
+    @include css3(animation-duration, 400ms);
+  }
+  .animated {
+    @include css3(animation-duration, 400ms);
+  }
+  display: none;
   .calendar-inner {
+    width: 320px;
+    @include css3(box-shadow, "0 19px 38px rgba(0,0,0,.3),0 15px 12px rgba(0,0,0,.22)");
+    overflow: hidden;
     .calendar-header {
       background: $ColorA;
       color: white;
       line-height: $HeightStandardB;
       padding: 0 10px;
       font-size: 20px;
-      text-align: center;    
+      text-align: center;
       .calendar-header-inner {
         height: $HeightStandardB;
         @include css3Property(display, flex);
@@ -114,6 +147,7 @@ html {
       color: #585656;
       position: relative;
       overflow: hidden;
+      background: white;
       .calendar-months {
         .calendar-week-days {
           color: gray;
@@ -135,7 +169,7 @@ html {
           .calendar-month {
             @include css3(backface-visibility, hidden);
             @include css3(transform, translate3d(0, 0, 0));
-            // @include css3(box-shadow, 0 8px 23px -10px black);
+            @include css3(transition-timing-function, ease-out);
             background: white;
             width: 100%;
             &.calendar-month-off {
@@ -157,17 +191,23 @@ html {
                 span {
                   margin-left: 5px;
                   margin-right: 5px;
+                  width: 100%;
                   line-height: calc( #{$HeightStandardB} - 12px );
+                  @include css3(transition, background 500ms);
+                  @include css3(border-radius, 100%);
                 }
                 &.calendar-day-other {
                   color: lightgray;
                 }
                 &.calendar-day-today {
                   span {
-                    width: 100%;
-                    background: $ColorA;
+                    color: $ColorA;
+                  }
+                }
+                &.calendar-day-selected {
+                  span {
+                    background-color: $ColorA;
                     color: white;
-                    @include css3(border-radius, 100%);
                   }
                 }
               }
@@ -177,69 +217,30 @@ html {
       }
     }
   }
-}
-.link {
-  @include css3(transition-duration, 100ms);
-  &:before {
-    content: "";
-    height: 150%;
-    width: 150%;
-    top: -25%;
-    left: -25%;
-    position: absolute;
-    @include css3Property(background-image, 'radial-gradient(center,circle cover,rgba(255,255,255,.30) 66%,rgba(255,255,255,0) 66%)');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
-    pointer-events: none;
-    @include css3(transition-duration, 0.6s);
-    opacity: 0;
+  @include keyframes(slideInUp) {
+    from {
+      @include css3(transform, translate3d(-50%,150%,0));
+    }
+    to {
+      @include css3(transform, translate3d(-50%, -50%, 0));
+    }
   }
-  &.active-state:before {
-    opacity: 1;
+  @include keyframes(slideOutDown) {
+    from {
+      @include css3(transform, translate3d(-50%,-50%,0));
+    }
+    to {
+      @include css3(transform, translate3d(-50%, 150%, 0));
+    }
   }
 }
-.animate-move-in-next {
-  @include animation(move-in-next 300ms ease both);
-}
-@include keyframes(move-in-next) {
-  from {
-    @include css3(transform, translateX(100%));
-  }
-  to {
-    @include css3(transform, translateX(0%));
-  }
-}
-.animate-move-in-prev {
-  @include animation(move-in-prev 300ms ease both);
-}
-@include keyframes(move-in-prev) {
-  from {
-    @include css3(transform, translateX(-100%));
-  }
-  to {
-    @include css3(transform, translateX(0%));
-  }
-}
-.animate-move-out-next {
-  @include animation(move-out-next 300ms ease both);
-}
-@include keyframes(move-out-next) {
-  from {
-    @include css3(transform, translateX(0%));
-  }
-  to {
-    @include css3(transform, translateX(-100%));
-  }
-}
-.animate-move-out-prev {
-  @include animation(move-out-prev 300ms ease both);
-}
-@include keyframes(move-out-prev) {
-  from {
-    @include css3(transform, translateX(0%));
-  }
-  to {
-    @include css3(transform, translateX(100%));
-  }
+.overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  top: 0px;
+  left:0px;
+  z-index: 1000;
 }
